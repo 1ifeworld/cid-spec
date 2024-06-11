@@ -1,0 +1,25 @@
+{
+  "name": "240610-protocol",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/index.js",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "@ipld/dag-cbor": "^9.2.0",
+    "@noble/curves": "^1.4.0",
+    "@noble/hashes": "^1.4.0",
+    "base64url": "^3.0.1",
+    "multiformats": "^13.1.1"
+  }
+}
