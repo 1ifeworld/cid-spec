@@ -1,5 +1,5 @@
 {
-  "name": "240610-protocol",
+  "name": "240718-ipfs",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -16,10 +16,7 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@ipld/dag-cbor": "^9.2.0",
-    "@noble/curves": "^1.4.0",
     "@noble/hashes": "^1.4.0",
-    "base64url": "^3.0.1",
-    "multiformats": "^13.1.1"
+    "base64url": "^3.0.1"
   }
 }

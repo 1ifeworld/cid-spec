@@ -1,12 +1,1 @@
-### to install
-pnpm i
-
-### to build
-pnpm build
-
-### to run
-pnpm start
-
-### to test
-pnpm test
-
+Sketch of serialization, hashing, and encoding functions for use with River data formats
