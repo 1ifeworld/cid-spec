@@ -11,6 +11,11 @@ import { MessageData } from "./types";
  */
 const RIVER_CID_PREFIX = new Uint8Array([0x01, 0x55, 0x1e, 0x20]);
 
+/**
+ * @dev Raw inner data: cid version 1, raw multicodec 0x55, blake3 multihash 0x1e, len of 32
+ */
+const BLAKE3_HASH_LENGTH = 32
+
 ////////////////////////////////////////////////////////////////
 // SERIALIZATION
 ////////////////////////////////////////////////////////////////
@@ -47,7 +52,7 @@ export function uint8ArrayToMessageData(uint8Array: Uint8Array): MessageData {
  */
 export function messageDataToBlake3Hash(messageData: MessageData): Uint8Array {
   const serializedMessageData = messageDataToUint8Array(messageData);
-  return blake3(serializedMessageData, { dkLen: 32 });
+  return blake3(serializedMessageData, { dkLen: BLAKE3_HASH_LENGTH });
 }
 
 /**
@@ -55,7 +60,7 @@ export function messageDataToBlake3Hash(messageData: MessageData): Uint8Array {
  * @notice blake3 default length is 32 bytes but hardcoded for readability
  */
 export function blobToBlake3Hash(blob: Blob): Uint8Array {
-    return blake3(blob, {dkLen: 32})
+    return blake3(blob, { dkLen: BLAKE3_HASH_LENGTH })
 }
 
 ////////////////////////////////////////////////////////////////
@@ -88,7 +93,7 @@ export function blobToBase64UrlMulticodec(
   ): string {
     // calculate blake3 hash of messageData object
     const hash = blobToBlake3Hash(blob);
-    // This creates a new Uint8Array with a length equal to length of prefix and cid lengths. The array is initialized with zeros.
+    // This creates a new Uint8Array with a length equal to length of prefix and blake3hash lengths. The array is initialized with zeros.
     const combinedBytes = new Uint8Array(RIVER_CID_PREFIX.length + hash.length);
     // This copies the values from prefix into combined, starting at index 0. After this operation, the first four bytes of combined will be [0x01, 0x55, 0x1e, 0x20].
     combinedBytes.set(RIVER_CID_PREFIX);
