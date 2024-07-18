@@ -1,7 +1,7 @@
 Sketch of serialization, hashing, and encoding functions for use with River data formats
 
 - `src/ipfs.ts` is where to find serialization, hasing, encoding functions
-- `src/types.ts` exports draft version of our protoocl actions spec for reference
+- `src/types.ts` exports draft version of our protocol actions spec for reference
 
 The goal of this repo is to formalize a set of functions that facilitate:
 - conversion of small json objects AND large media files into ipfs combatible cids, using blake3 and multicodec
