@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@noble/hashes": "^1.4.0",
-    "base64url": "^3.0.1"
+    "base64url": "^3.0.1",
+    "blake3-multihash": "^0.0.4",
+    "multiformats": "^13.1.3"
   }
 }
